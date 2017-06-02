@@ -1,5 +1,6 @@
 ''''''
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 from . import db
 
 class Bookmark(db.EmbeddedDocument):
@@ -13,7 +14,7 @@ class UserPermissionLevel(db.EmbeddedDocument):
     ''''''
     pass
 
-class User(db.Document):
+class User(db.Document, UserMixin):
     ''''''
     meta = {'collection': 'users'}
 

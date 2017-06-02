@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bookmarkswtf{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+    <footer>
+      {% block footer %}{% endblock %}
+    </footer>
+  </body>
+</html>
