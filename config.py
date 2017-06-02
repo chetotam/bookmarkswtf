@@ -8,6 +8,7 @@ class BaseConfig:
 class DevelopmentConfig(BaseConfig):
     ''''''
     DEBUG = True
+    MONGODB_DB = 'bookmarkswtf-dev'
 
 class TestingConfig(BaseConfig):
     ''''''

@@ -1,6 +1,7 @@
 ''''''
 from flask_script import Manager, Server
-from app import create_app
+from app import create_app, db
+from app.models import User, Bookmark
 
 manager = Manager(create_app)
 manager.add_command('runserver', Server())
@@ -8,7 +9,7 @@ manager.add_command('runserver', Server())
 @manager.shell
 def make_shell_context():
     ''''''
-    return dict(app=manager.app)
+    return dict(app=manager.app, db=db, User=User, Bookmark=Bookmark)
 
 @manager.command
 def test():
