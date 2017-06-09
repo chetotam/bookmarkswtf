@@ -15,7 +15,7 @@
     {{ form.submit(id="submit", class="button", value="Save") }}
   </form>
   <ul>
-    {% for bookmark in current_user.bookmarks %}
+    {% for bookmark in current_user.bookmarks if not bookmark.expired %}
       <li>
         <article>
           <a href="{{ bookmark.url }}">
