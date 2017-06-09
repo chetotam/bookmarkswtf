@@ -30,6 +30,8 @@ def signup():
         user.password = form.password.data
         try:
             user.save()
+            # TODO: here should be some email confirmation thing
+            login_user(user)
             return redirect(url_for("main.home"))
         except:
             flash('smth not ok')

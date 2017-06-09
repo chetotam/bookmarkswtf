@@ -19,8 +19,7 @@
       </ul>
     {% endif %}
   {% endwith %}
-  <a href="">Forgot password?</a>
-  <a href="">Register</a>
+  <a href="{{ url_for('auth.signin') }}">Sign in</a>
 {% endblock %}
 {% block footer %}
 {% endblock %}

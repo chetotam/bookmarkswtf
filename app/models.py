@@ -22,7 +22,7 @@ class User(db.Document, UserMixin):
 
     email = db.EmailField(unique=True, required=True)
     password_hash = db.StringField(required=True)
-    bookmarks = db.ListField(db.EmbeddedDocumentField(Bookmark))
+    bookmarks = db.SortedListField(db.EmbeddedDocumentField(Bookmark), ordering='date_last_viewed', reverse=True)
 
     @property
     def password(self):
@@ -64,3 +64,6 @@ class User(db.Document, UserMixin):
             return User.objects.get(id=user_id)
         except db.DoesNotExist:
             return None
+
+    def __repr__(self):
+        return '<User {}>'.format(self.email)

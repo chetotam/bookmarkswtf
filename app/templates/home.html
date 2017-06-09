@@ -1,10 +1,38 @@
 {% extends 'layout.html' %}
 {% block title %} - Home{% endblock %}
 {% block header %}
+  <a href=""><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
+  <input type="search" name="searchbox" placeholder="Search">
+  <button type="button">+</button>
+  <a href=""><img src="{{ url_for('static', filename='logo.png') }}" alt="profile_picture"></a>
 {% endblock %}
 {% block main %}
-  <img src="{{ url_for('static', filename='logo.png') }}" alt="logo">
-  <h1>Home</h1>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.url(id="url", class="input", placeholder="URL", autocomplete="off", required=True) }}
+    {{ form.title(id="title", class="input", placeholder="Title", autocomplete="off", required=True) }}
+    {{ form.description(id="description", class="input", autocomplete="off", placeholder="Description") }}
+    {{ form.submit(id="submit", class="button", value="Save") }}
+  </form>
+  <ul>
+    {% for bookmark in current_user.bookmarks %}
+      <li>
+        <article>
+          <a href="{{ bookmark.url }}">
+            <img src="http://www.google.com/s2/favicons?domain={{ bookmark.url }}" alt="icon">
+            <h2>{{bookmark.title}}</h2>
+            <p>{{bookmark.description}}</p>
+            <p>{{bookmark.url}}</p>
+            <button type="button">Make immortal</button>
+            <button type="button">Edit</button>
+            <button type="button">Remove</button>
+          </a>
+        </article>
+      </li>
+    {% endfor %}
+</ul>
 {% endblock %}
 {% block footer %}
+  <a href="">About</a>
+  <a href="">API</a>
 {% endblock %}
