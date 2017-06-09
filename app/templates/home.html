@@ -1,10 +1,10 @@
 {% extends 'layout.html' %}
 {% block title %} - Home{% endblock %}
 {% block header %}
-  <a href=""><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
+  <a href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
   <input type="search" name="searchbox" placeholder="Search">
   <button type="button">+</button>
-  <a href=""><img src="{{ url_for('static', filename='logo.png') }}" alt="profile_picture"></a>
+  <a href="{{ url_for('main.profile') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="profile_picture"></a>
 {% endblock %}
 {% block main %}
   <form method="post">

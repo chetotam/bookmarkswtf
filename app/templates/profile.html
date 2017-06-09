@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %} - Profile{% endblock %}
+{% block header %}
+{% endblock %}
+{% block main %}
+  {{ current_user.email }}
+  <button type="button">Edit</button>
+  <a href="{{ url_for('auth.signout') }}">Sign out</a>
+{% endblock %}
+{% block footer %}
+{% endblock %}

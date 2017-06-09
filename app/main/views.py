@@ -27,3 +27,9 @@ def home():
         current_user.save()
         return redirect(url_for('main.home'))
     return render_template('home.html', form=form)
+
+@main.route('/profile')
+@login_required
+def profile():
+    '''Profile page'''
+    return render_template('profile.html')
