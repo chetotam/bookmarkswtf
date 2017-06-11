@@ -2,9 +2,9 @@
 {% block title %} - Home{% endblock %}
 {% block header %}
   <a href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
-  <input type="search" name="searchbox" placeholder="Search">
+  <input type="search" name="searchbox" placeholder="Search" autofocus>
   <button type="button">+</button>
-  <a href="{{ url_for('main.profile') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="profile_picture"></a>
+  <a href="{{ url_for('main.profile') }}">My Account</a>
 {% endblock %}
 {% block main %}
   <form method="post">
