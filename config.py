@@ -8,6 +8,7 @@ class BaseConfig:
 class DevelopmentConfig(BaseConfig):
     ''''''
     DEBUG = True
+    SEND_FILE_MAX_AGE_DEFAULT = 0 # Do not cache static files on client
     MONGODB_DB = 'bookmarkswtf-dev'
 
 class TestingConfig(BaseConfig):
