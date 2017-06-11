@@ -2,19 +2,20 @@
 {% block title %} - Home{% endblock %}
 {% block header %}
   <a href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
-  <input type="search" name="searchbox" placeholder="Search" autofocus>
-  <button type="button">+</button>
+  <input type="search" id="searchbox" placeholder="Search" autofocus>
+  <button type="button" id="add-bookmark-button">+</button>
   <a href="{{ url_for('main.profile') }}">My Account</a>
 {% endblock %}
 {% block main %}
-  <form method="post">
+  <form method="post" id="add-bookmark-form" hidden>
     {{ form.hidden_tag() }}
     {{ form.url(id="url", class="input", placeholder="URL", autocomplete="off", required=True) }}
     {{ form.title(id="title", class="input", placeholder="Title", autocomplete="off", required=True) }}
     {{ form.description(id="description", class="input", autocomplete="off", placeholder="Description") }}
     {{ form.submit(id="submit", class="button", value="Save") }}
+    <button type="button" id="close">X</button>
   </form>
-  <ul>
+  <ul id="bookmarks-list">
     {% for bookmark in current_user.bookmarks if not bookmark.expired %}
       <li>
         <article>
